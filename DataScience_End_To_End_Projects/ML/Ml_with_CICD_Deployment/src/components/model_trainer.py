@@ -12,7 +12,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.tree import DecisionTreeRegressor
-from xgboost import XGBRegressor
+
 
 from src.exception import CustomException
 from src.logger import logging
@@ -27,7 +27,7 @@ class ModelTrainer:
     def __init__(self):
         self.model_trainer_config=ModelTrainerConfig()
     
-    def initiate_moel_trainer(self,train_arr,test_arr,preprocess_path):
+    def initiate_model_trainer(self,train_arr,test_arr):
         try:
             logging.info("Split training and test data in model trainner")
             x_train,y_train,x_test,y_test=(
@@ -41,7 +41,6 @@ class ModelTrainer:
                 "Decision Tree": DecisionTreeRegressor(),
                 "Gradient Boosting": GradientBoostingRegressor(),
                 "Linear Regression": LinearRegression(),
-                "XGBRegressor": XGBRegressor(),
                 "CatBoosting Regressor": CatBoostRegressor(verbose=False),
                 "AdaBoost Regressor": AdaBoostRegressor(),
             }
@@ -66,10 +65,6 @@ class ModelTrainer:
                     'n_estimators': [8,16,32,64,128,256]
                 },
                 "Linear Regression":{},
-                "XGBRegressor":{
-                    'learning_rate':[.1,.01,.05,.001],
-                    'n_estimators': [8,16,32,64,128,256]
-                },
                 "CatBoosting Regressor":{
                     'depth': [6,8,10],
                     'learning_rate': [0.01, 0.05, 0.1],
@@ -100,11 +95,11 @@ class ModelTrainer:
             logging.info(f"Best found model on both training and testing dataset")
 
             save_object(
-                file_path=self.model_trainer_config.trained_model_file_path,
+                file_path=self.model_trainer_config.trained_model_path,
                 obj=best_model
             )
 
-            predicted=best_model.predict(X_test)
+            predicted=best_model.predict(x_test)
 
             r2_square = r2_score(y_test, predicted)
             return r2_square
