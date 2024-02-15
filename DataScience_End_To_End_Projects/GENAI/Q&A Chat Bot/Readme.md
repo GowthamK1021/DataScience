@@ -1,1 +1,1 @@
-End to end GENAI model deployment 
+Developed a sophisticated question-answering (Q&A) bot using a pretrained OpenAI model with the help of Langchain Library.Deployed the model in huggingface. I have also created a user-friendly interface powered by Streamlit, allowing users to interact with the Q&A bot seamlessly.

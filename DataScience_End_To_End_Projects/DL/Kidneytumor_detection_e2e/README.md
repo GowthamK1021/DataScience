@@ -1,5 +1,21 @@
 # Kidney-Disease-Classification-MLflow-DVC
+## Description: 
+Designed and developed a comprehensive end-to-end data science project aimed at detecting kidney tumors using deep learning.Created an intuitive user interface to interact with model.Orchestrated the deployment of the project onto the AWS cloud, implementing a streamlined CI/CD pipeline through GitHub Actions. Leveraged Dagshub to harness the power of MLflow for efficient experimentation and model optimization.
+## Problem:
+There is a need for a reliable and automated solution that can accurately detect kidney tumors from medical images, thereby improving diagnostic accuracy and patient outcomes.
+## Solution:
+Developed a robust deep learning model trained on a dataset of kidney tumor images which can accurately identify and classify tumors with accuracy of 87%.
+## Technology Stack:
+Python,VGG-16,AWS,ECR,EC2,Flask,HTML,MLFlow,Dagshub,DVC,Github Actions,Docker.
 
+## Screenshot:
+![Alt text](Screenshots/App.PNG)
+![Alt text](Screenshots/CI_CD_DL.PNG) 
+![Alt text](Screenshots/ml_flow_compare.PNG)
+![Alt text](Screenshots/intance_logs.PNG)
+![Alt text](Screenshots/ecr_dl.PNG)
+![Alt text](Screenshots/ec2.PNG) 
+![Alt text](Screenshots/dagshub_dl.PNG)
 
 ## Workflows
 
